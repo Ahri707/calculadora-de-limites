@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de Limites</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+<h1>Calculadora de Limites</h1>
+<p class="sub">Digite uma função, escolha o ponto e veja o limite, a tabela de aproximação e o gráfico.</p>
+
+<div class="card">
+  <div class="row">
+    <label>f(x) =<input id="fx" value="(x^2-4)/(x-2)" autocomplete="off" spellcheck="false"></label>
+    <label class="sm">x tende a<input id="pt" value="2" autocomplete="off" spellcheck="false"></label>
+    <button class="go" id="go">Calcular</button>
+  </div>
+  <div id="err"></div>
+  <div class="chips" id="chips"></div>
+  <p class="tip">Use ^ para potência, sqrt(x), sen(x), cos(x), tan(x), ln(x), log(x), exp(x), abs(x), pi e e. Para infinito, escreva inf ou -inf. Use parênteses nos argumentos: sen(5x).</p>
+</div>
+
+<div class="card" id="res" hidden>
+  <p class="big" id="big"></p>
+  <div class="muted" id="sides"></div>
+  <ul class="hints" id="hints"></ul>
+</div>
+
+<div class="card" id="gcard" hidden>
+  <h2>Gráfico</h2>
+  <canvas id="cv"></canvas>
+  <p class="tip">A linha tracejada vertical marca o ponto x = a; a horizontal marca o valor do limite. O círculo aberto indica o ponto a que a função se aproxima.</p>
+</div>
+
+<div class="card" id="tcard" hidden>
+  <h2>Tabela de aproximação</h2>
+  <div class="tbls" id="tbls"></div>
+</div>
+
+<div class="card ref">
+  <h2>Qual método usar?</h2>
+  <div class="scroll"><table>
+    <tr><th>Situação</th><th>Técnica</th></tr>
+    <tr><td>Função contínua no ponto</td><td>Substituição direta</td></tr>
+    <tr><td>0/0 com polinômios</td><td>Fatoração</td></tr>
+    <tr><td>0/0 com raízes</td><td>Racionalização (conjugado)</td></tr>
+    <tr><td>k/0, com k ≠ 0</td><td>Limites laterais (assíntota vertical)</td></tr>
+    <tr><td>∞/∞ com x → ∞</td><td>Dividir pelo termo de maior grau</td></tr>
+    <tr><td>1^∞, 0^0, ∞^0</td><td>Logaritmo ou limite exponencial fundamental</td></tr>
+    <tr><td>0/0 ou ∞/∞ com derivadas</td><td>Regra de L’Hôpital</td></tr>
+  </table></div>
+  <p class="tip">O resultado é uma estimativa numérica (aproximação por valores muito próximos de a). Ela é ótima para conferir exercícios, mas não substitui a resolução algébrica.</p>
+</div>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>
