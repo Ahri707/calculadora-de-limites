@@ -96,10 +96,11 @@ function parse(expression) {
     while (currentToken()?.operator === "+" || currentToken()?.operator === "-") {
       const operator = tokens[position++].operator;
       const right = parseTerm();
+      const previous = left;
 
       left = operator === "+"
-        ? x => left(x) + right(x)
-        : x => left(x) - right(x);
+        ? x => previous(x) + right(x)
+        : x => previous(x) - right(x);
     }
 
     return left;
